@@ -1,9 +1,4 @@
-resource "aws_s3_bucket" "glue_bucket_matthew" {
-    bucket = "matthew-test-cd"
-    versioning{
-        enabled = true
-    }
-     tags = {
-         Env = "Terraform"
- }
+module "infra_bucket" {
+    source = "git::https://github.com/Thomaspradeep/IDP.git?ref=1.1.1"
+    bucket_name = local.infra_bucket_name
 }
