@@ -5,7 +5,7 @@ resource "aws_eks_cluster" "mycluster" {
     vpc_config {
         subnet_ids = ["subnet-0bde0e1c7eae6887c","subnet-0903f761c530aff48"]
         security_group_ids = ["sg-05ecf22944ada3dd9"]
-        vpc_id = ["vpc-0d9fbd9183a2326f6"]
+        vpc_id = "vpc-0d9fbd9183a2326f6"
     }
 }
 
