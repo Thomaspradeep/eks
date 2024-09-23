@@ -2,6 +2,8 @@ resource "aws_eks_cluster" "mycluster" {
     name = "mycluster"
     role_arn = "arn:aws:iam::650251688303:role/AmazonEKSRole"
 
+    enabled_cluster_log_types = [ "api", "audit", "authenticator", "controllerManager", "scheduler" ]
+
     vpc_config {
         subnet_ids = ["subnet-0bde0e1c7eae6887c","subnet-0903f761c530aff48"]
         security_group_ids = ["sg-05ecf22944ada3dd9"]
