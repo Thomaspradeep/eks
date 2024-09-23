@@ -7,3 +7,14 @@ resource "aws_eks_cluster" "mycluster" {
         security_group_ids = ["sg-05ecf22944ada3dd9"]
     }
 }
+
+resource "aws_eks_fargate_profile" "myfargate" {
+  cluster_name           = aws_eks_cluster.mycluster.name
+  fargate_profile_name   = "myfargate"
+  pod_execution_role_arn = aws_iam_role.fargate_role.arn
+  subnet_ids             = ["subnet-01340f133a56696b6","subnet-0b1b89ebb6741e85a"]
+
+  selector {
+    namespace = "test"
+  }
+}
